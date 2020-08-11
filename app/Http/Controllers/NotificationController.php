@@ -93,13 +93,11 @@ class NotificationController extends Controller
     {
         $fcmUrl = 'https://fcm.googleapis.com/fcm/send';
         // $token=$token;
-
-        
         
         $course_id = $request->course_id;
         $course = Course::findOrFail($course_id);
 
-        $title = "UOL - " . $course->course_name . " by " . auth()->user()->first_name;
+        $title = "Uni - " . $course->course_name . " by " . auth()->user()->first_name;
         $topic = "/topics/" . $course_id;
         
         $notification = array(
