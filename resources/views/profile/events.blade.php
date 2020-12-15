@@ -25,28 +25,30 @@
 
 <div class="col-md-12">
         <div class="content">
-                <div class="container-fluid">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="card">
-                        <div class="card-header card-header-primary">
-                          <h4 class="card-title">Dashboard</h4>
-                          
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header card-header-primary">
+                    <h4 class="card-title">Dashboard
+                      <a href="{{ route('SessionReport', $data['id']) }}" class="btn btn-info float-right">Generate Report</a>
+                    </h4>
+                    
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12"> 
+                        <h2 class="text-center"> Session : {{ $data['session']->semester_type }} {{ $data['session']->semester_year }}</h2>
                         </div>
-                        <div class="card-body">
-                          <div class="row">
-                              <div class="col-md-12"> 
-                              <h2 class="text-center"> Session : {{ $data['session']->semester_type }} {{ $data['session']->semester_year }}</h2>
-                              </div>
-                          </div>
-                            <div id='calendar'></div>
-                        </div>
-                      </div>
                     </div>
-                   
+                      <div id='calendar'></div>
                   </div>
                 </div>
               </div>
+              
+            </div>
+          </div>
+        </div>
 </div>
 
 @php
@@ -57,8 +59,6 @@
         );
  //dd($data['topReactTrulies']);
  foreach($data['events'] as $row){
-        
-        
         //echo date_format($row->event_date,"Y/m/d H:i:s"); 
         $date =  date("d-m-Y", strtotime($row->task_date));
          $currentDate = date("d-m-Y"); 

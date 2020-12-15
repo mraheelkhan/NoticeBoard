@@ -64,6 +64,7 @@ Route::get('/logout', 'HomeController@logout')->name('Logout');
 // admin dashboard 
 Route::get('/dashboard', 'ProfileController@dashboard')->name('Dashboard')->middleware('auth');
 Route::get('/session/events/{id}', 'ProfileController@session_events')->name('SessionEvents')->middleware('auth');
+Route::get('/session/events/report/{id}', 'ProfileController@report')->name('SessionReport')->middleware('auth');
 Route::get('/admin', 'ProfileController@dashboard')->name('Dashboard')->middleware('auth');
 
 // semester 

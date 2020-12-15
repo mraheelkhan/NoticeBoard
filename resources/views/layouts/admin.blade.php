@@ -22,7 +22,26 @@
   <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
   <link href="{{asset('assets/demo/demo.css')}}" rel="stylesheet" />
   <script src="{{asset('assets/js/plugins/sweetalert2.js')}}"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/b-1.6.5/b-flash-1.6.5/b-html5-1.6.5/b-print-1.6.5/datatables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/b-1.6.5/b-flash-1.6.5/b-html5-1.6.5/b-print-1.6.5/datatables.min.js"></script>
   <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+  <script>
+    var InitTable = function () {
+     $("#table_data").DataTable({
+      paging: false,
+      searching: false,
+      dom: 'Bfrtip',
+        buttons: [
+          'excel',
+        'print', 'pdf'
+        ]
+     });
+ 
+ };
+  </script>
 </head>
 
 <body class="">
@@ -47,6 +66,7 @@
  <script src="{{asset('assets/js/bootstrap-datepicker.min.js')}}"></script>
  <!--  Plugin for Sweet Alert -->
  <!-- Forms Validations Plugin -->
+ 
  <script src="{{asset('assets/js/plugins/jquery.validate.min.js')}}"></script>
  <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
  <script src="{{asset('assets/js/plugins/jquery.bootstrap-wizard.js')}}"></script>
@@ -55,7 +75,7 @@
  <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
  <script src="{{asset('assets/js/plugins/bootstrap-datetimepicker.min.js')}}"></script>
  <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
- <script src="{{asset('assets/js/plugins/jquery.dataTables.min.js')}}"></script>
+
  <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
  <script src="{{asset('assets/js/plugins/bootstrap-tagsinput.js')}}"></script>
  <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->

@@ -26,6 +26,7 @@ class ProfileController extends Controller
             // $data['events'] = Task::where('status', 'active')->where('isDeleted', 0)->get();
             $data['events'] = Task::where('semester_id', $id)->get();
             $data['session'] = Semester::findOrFail($id);
+            $data['id'] = $id;
             return view('profile.events')->with('data', $data);
         }
         return view('forbidden');
@@ -54,5 +55,10 @@ class ProfileController extends Controller
         Session::flash('message', 'Your Profile Updated Successfully. <script>swal.firePP("success","Updated","Your Profile Updated Successfully.");</script>'); 
         return redirect()->back();
         
+    }
+
+    public function report($id){
+        $data['events'] = Task::where('semester_id', $id)->get();
+        return view('profile.report', compact('data'));
     }
 }
